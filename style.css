@@ -1,0 +1,693 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+   --primary: #10b981; /* Emerald 500 */
+   --primary-dark: #059669; /* Emerald 600 */
+   --primary-light: #d1fae5; /* Emerald 100 */
+   --secondary: #3b82f6; /* Blue 500 */
+   --accent: #f59e0b; /* Amber 500 */
+   --black: #111827; /* Gray 900 */
+   --white: #ffffff;
+   --light-bg: #f8fafc; /* Slate 50 */
+   --gray-border: #e2e8f0; /* Slate 200 */
+   --text-muted: #64748b; /* Slate 500 */
+   --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+   --glass-bg: rgba(255, 255, 255, 0.8);
+   --glass-blur: blur(8px);
+}
+
+* {
+   font-family: 'Outfit', sans-serif;
+   margin: 0; padding: 0;
+   box-sizing: border-box;
+   outline: none; border: none;
+   text-decoration: none;
+   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*::selection {
+   background-color: var(--primary);
+   color: var(--white);
+}
+
+html {
+   font-size: 62.5%;
+   overflow-x: hidden;
+   scroll-behavior: smooth;
+}
+
+body {
+   background-color: var(--light-bg);
+   color: var(--black);
+   line-height: 1.6;
+}
+
+/* Base Components */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.btn {
+   display: inline-block;
+   width: 100%;
+   border-radius: 12px;
+   padding: 1.2rem 3rem;
+   font-size: 1.8rem;
+   font-weight: 600;
+   cursor: pointer;
+   background-color: var(--primary);
+   color: var(--white);
+   text-align: center;
+   box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+}
+
+.btn:hover {
+   background-color: var(--primary-dark);
+   transform: translateY(-2px);
+   box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.4);
+}
+
+.message {
+   margin: 1rem 0;
+   width: 100%;
+   border-radius: 8px;
+   padding: 1.2rem;
+   text-align: center;
+   font-size: 1.6rem;
+   color: var(--white);
+   background-color: #ef4444; /* High-quality red */
+   animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Form Container */
+.form-container {
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 2rem;
+   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.form-container form {
+   width: 45rem;
+   border-radius: 20px;
+   box-shadow: var(--box-shadow);
+   background-color: var(--white);
+   text-align: center;
+   padding: 4rem;
+   border: 1px solid var(--gray-border);
+}
+
+.form-container form h3 {
+   font-size: 3.2rem;
+   margin-bottom: 2rem;
+   font-weight: 700;
+   color: var(--black);
+   background: linear-gradient(to right, var(--primary), var(--secondary));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
+}
+
+.form-container form .box {
+   width: 100%;
+   border-radius: 12px;
+   padding: 1.4rem 1.6rem;
+   font-size: 1.6rem;
+   color: var(--black);
+   margin: 1.2rem 0;
+   background-color: var(--light-bg);
+   border: 1px solid var(--gray-border);
+}
+
+.form-container form .box:focus {
+   border-color: var(--primary);
+   background-color: var(--white);
+   box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+.form-container form p {
+   margin-top: 2.5rem;
+   font-size: 1.6rem;
+   color: var(--text-muted);
+}
+
+.form-container form p a {
+   color: var(--primary);
+   font-weight: 600;
+}
+
+.form-container form p a:hover {
+   color: var(--primary-dark);
+   text-decoration: underline;
+}
+
+/* Profile Card (Used on home.php) */
+.profile {
+    background: var(--white);
+    padding: 4rem;
+    border-radius: 24px;
+    box-shadow: var(--box-shadow);
+    max-width: 42rem;
+    margin: 10rem auto;
+    text-align: center;
+}
+
+.profile img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    border: 4px solid var(--primary-light);
+}
+
+.profile h3 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--black);
+}
+
+/* Header Updates */
+.header {
+    background-color: var(--white);
+    padding: 1rem 0;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #444;
+}
+
+.header .logo span {
+    color: var(--primary);
+}
+
+.header .nav-links a {
+    margin: 0 1.5rem;
+    font-size: 1.8rem;
+    color: #666;
+    text-transform: lowercase;
+}
+
+.header .nav-links a:hover {
+    color: var(--primary);
+}
+
+.header .icons {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.header .icons i {
+    font-size: 2.2rem;
+    color: #333;
+    cursor: pointer;
+    position: relative;
+}
+
+.header .icons span {
+    font-size: 1.4rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Home Hero Section */
+.home-hero {
+    height: 50rem;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('uploaded_img/images/hero_bg.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding: 2rem;
+}
+
+.home-hero .content h4 {
+    font-size: 2.4rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.home-hero .content h1 {
+    font-size: 4.8rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.home-hero .content p {
+    font-size: 1.8rem;
+    max-width: 60rem;
+    margin: 0 auto 3rem;
+    opacity: 0.9;
+}
+
+.home-hero .btn {
+    width: auto;
+    padding: 1.2rem 4rem;
+    background-color: var(--primary);
+    border-radius: 5px;
+}
+
+/* Shop Category Section */
+.shop-category {
+    padding: 8rem 0;
+    text-align: center;
+}
+
+.shop-category h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    margin-bottom: 5rem;
+    color: #333;
+}
+
+.category-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.category-card {
+    flex: 1 1 28rem;
+    max-width: 32rem;
+    background: var(--white);
+    border: 1px solid var(--gray-border);
+    padding: 2.5rem;
+    border-radius: 8px; /* matching screenshot which looks slightly more square than index features */
+}
+
+.category-card img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    margin-bottom: 2rem;
+}
+
+.category-card h2 {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.category-card p {
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    height: 6rem;
+    overflow: hidden;
+}
+
+.category-card .category-btn {
+    display: block;
+    width: 100%;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 1rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+.category-card .category-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Update Profile Section */
+.update-profile {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: var(--light-bg);
+}
+
+.update-profile form {
+    padding: 3rem;
+    width: 80rem;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    border-radius: 20px;
+}
+
+.update-profile form img {
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 4px solid var(--primary-light);
+}
+
+.update-profile form .flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    gap: 3rem;
+}
+
+.update-profile form .flex .inputBox {
+    width: 49%;
+}
+
+.update-profile form .flex .inputBox span {
+    text-align: left;
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-muted);
+}
+
+.update-profile form .flex .inputBox .box {
+   width: 100%;
+   border-radius: 12px;
+   padding: 1.4rem 1.6rem;
+   font-size: 1.6rem;
+   color: var(--black);
+   margin: 1rem 0;
+   background-color: var(--light-bg);
+   border: 1px solid var(--gray-border);
+}
+
+.delete-btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    color: var(--white);
+    background-color: #ef4444;
+    border-radius: 12px;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.delete-btn:hover {
+    background-color: #dc2626;
+}
+
+@media (max-width: 768px) {
+    .update-profile form .flex {
+        flex-direction: column;
+        gap: 0;
+    }
+    .update-profile form .flex .inputBox {
+        width: 100%;
+    }
+}
+
+/* Products Section */
+.products {
+    padding: 8rem 0;
+    background: var(--light-bg);
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 5rem;
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: var(--black);
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    height: 4px; width: 8rem;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    gap: 3rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.product-card {
+    background: var(--white);
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--gray-border);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    height: 220px;
+    width: 220px;
+    object-fit: contain;
+    margin-bottom: 2rem;
+}
+
+.product-card .name {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--black);
+    margin: 1.5rem 0;
+}
+
+.product-card .price {
+    font-size: 2.2rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.product-card .qty {
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray-border);
+    margin-bottom: 1.5rem;
+    background: var(--light-bg);
+    font-size: 1.6rem;
+}
+
+.product-card .qty:focus {
+    border-color: var(--primary);
+    background: var(--white);
+}
+
+.product-card .btn {
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1.6rem;
+}
+
+/* Shopping Cart Section */
+.shopping-cart {
+    padding: 8rem 0;
+}
+
+.shopping-cart .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2.5rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.shopping-cart .box-container .box {
+    background: var(--white);
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--gray-border);
+    position: relative;
+}
+
+.shopping-cart .box-container .box i {
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    height: 4.5rem; width: 4.5rem;
+    line-height: 4.5rem;
+    font-size: 2rem;
+    background: #ef4444;
+    color: var(--white);
+    border-radius: 50%;
+}
+
+.shopping-cart .box-container .box img {
+    height: 200px;
+}
+
+.shopping-cart .cart-total {
+    max-width: 1200px;
+    margin: 3rem auto;
+    border: 1px solid var(--gray-border);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 12px;
+    background: var(--white);
+}
+
+.shopping-cart .cart-total p {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--black);
+}
+
+.shopping-cart .cart-total p span {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.shopping-cart .cart-total .btn {
+    width: auto;
+}
+
+/* Display Order Section */
+.display-order {
+    padding: 8rem 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.display-order p {
+    font-size: 2.2rem;
+    color: var(--black);
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--gray-border);
+}
+
+.display-order p span {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.grand-total {
+    font-size: 3rem;
+    margin-top: 3rem;
+    color: var(--black);
+}
+
+.grand-total span {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+/* Checkout Section */
+.checkout {
+    padding-bottom: 8rem;
+}
+
+.checkout form {
+    padding: 4rem;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--gray-border);
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.checkout form h3 {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--black);
+}
+
+.checkout form .flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.checkout form .flex .inputBox {
+    flex: 1 1 40rem;
+}
+
+.checkout form .flex .inputBox span {
+    font-size: 1.8rem;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 1.5rem;
+}
+
+.checkout form .flex .inputBox input,
+.checkout form .flex .inputBox select {
+    width: 100%;
+    background: var(--light-bg);
+    border-radius: 12px;
+    padding: 1.4rem 1.6rem;
+    font-size: 1.6rem;
+    color: var(--black);
+    margin-top: 1rem;
+    border: 1px solid var(--gray-border);
+}
+
+/* Orders History Section */
+.placed-orders {
+    padding: 8rem 0;
+}
+
+.placed-orders .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+    gap: 2.5rem;
+    justify-content: center;
+}
+
+.placed-orders .box-container .box {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--gray-border);
+}
+
+.placed-orders .box-container .box p {
+    font-size: 1.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+}
+
+.placed-orders .box-container .box p span {
+    color: var(--primary);
+    font-weight: 600;
+}
